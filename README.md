@@ -6,6 +6,7 @@ React-Scrollify is a lightweight, easy-to-style scrollbar component for React ap
 
 - **Easy to Style**: Customize the scrollbar to fit your application's design with ease.
 - **Cross-Browser Support**: Works seamlessly across all modern browsers.
+- **Full Support for Content Size Change**: Automatically adjusts the scrollbar when the content size changes, ensuring a smooth user experience.
 - **Lightweight**: Minimal footprint ensures fast loading times.
 - **RTL Support**: Fully compatible with right-to-left languages.
 
