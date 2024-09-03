@@ -1,0 +1,36 @@
+{
+  "name": "react-scrollify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
+    "build": "tsc"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "keywords": [
+    "react",
+    "scrollbar",
+    "react-scrollify"
+  ],
+  "author": "Raphael Aboohi",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^18.3.5",
+    "rimraf": "^6.0.1",
+    "sass": "^1.77.8",
+    "typescript": "^5.5.4"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  }
+}
