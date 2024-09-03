@@ -61,9 +61,9 @@ React-Scrollify allows you to style the scrollbar easily using standard CSS. For
 You can pass configuration options as props to the React-Scrollify component to customize its behavior.
 
 ```javascript
-<ReactScrollify isRTL={true}>
+<Scrollify isRTL={true}>
   <div>Your content here</div>
-</ReactScrollify>
+</Scrollify>
 ```
 
 - `rtl`: Set to `true` for right-to-left language support.
