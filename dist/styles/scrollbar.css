@@ -1,0 +1,59 @@
+:root {
+  --react-scrollify-thumb: #d9d9d9;
+  --react-scrollify-thumb-hover: #bfbfbf;
+  --react-scrollify-track: rgba(0, 0, 0, 0.1);
+  --react-scrollify-width: 8px;
+  --react-scrollify-side: 2px;
+}
+
+.react-scrollify__wrapper {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+.react-scrollify__content {
+  overflow: auto;
+  height: 100%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.react-scrollify__content::-webkit-scrollbar {
+  display: none;
+}
+.react-scrollify__bar {
+  background-color: var(--react-scrollify-track);
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: var(--react-scrollify-width);
+  transition: opacity 0.3s ease;
+}
+.react-scrollify__bar--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.react-scrollify__bar--rtl {
+  right: var(--react-scrollify-side);
+}
+.react-scrollify__bar--ltr {
+  left: var(--react-scrollify-side);
+}
+.react-scrollify__thumb {
+  background-color: var(--react-scrollify-thumb);
+  border-radius: 9999px;
+  cursor: grab;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  transition: background-color 0.2s ease;
+}
+.react-scrollify__thumb:hover, .react-scrollify__thumb:active {
+  background-color: var(--react-scrollify-thumb-hover);
+}
+.react-scrollify__track {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}

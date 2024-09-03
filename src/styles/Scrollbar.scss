@@ -1,0 +1,69 @@
+:root {
+  --react-scrollify-thumb: #d9d9d9;
+  --react-scrollify-thumb-hover: #bfbfbf;
+  --react-scrollify-track: rgba(0, 0, 0, 0.1);
+  --react-scrollify-width: 3px;
+  --react-scrollify-side: 2px;
+}
+
+.react-scrollify {
+  &__wrapper {
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+  }
+
+  &__content {
+    overflow: auto;
+    height: 100%;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__bar {
+    background-color: var(--react-scrollify-track);
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: var(--react-scrollify-width);
+    transition: opacity 0.3s ease;
+
+    &--hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    &--rtl {
+      right: var(--react-scrollify-side);
+    }
+    &--ltr {
+      left: var(--react-scrollify-side);
+    }
+  }
+
+  &__thumb {
+    background-color: var(--react-scrollify-thumb);
+    border-radius: 9999px;
+    cursor: grab;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    transition: background-color 0.2s ease;
+
+    &:hover,
+    &:active {
+      background-color: var(--react-scrollify-thumb-hover);
+    }
+  }
+
+  &__track {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}

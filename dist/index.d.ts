@@ -1,7 +1,8 @@
 import React from "react";
-import "./styles/Scrollbar.scss";
+import "./styles/scrollbar.css";
 type Props = {
     children: React.ReactElement;
+    isRTL?: Boolean;
 };
-declare function Scrollify({ children }: Props): React.JSX.Element;
+declare function Scrollify({ children, isRTL }: Props): React.JSX.Element;
 export default Scrollify;

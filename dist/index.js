@@ -28,9 +28,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importStar(require("react"));
 const useResizeObserver_1 = __importDefault(require("./hooks/useResizeObserver"));
-require("./styles/Scrollbar.scss");
+require("./styles/scrollbar.css");
 const prefix = "react-scrollify";
-function Scrollify({ children }) {
+function Scrollify({ children, isRTL = false }) {
     // Refs for DOM elements
     const trackRef = (0, react_1.useRef)(null);
     const thumbRef = (0, react_1.useRef)(null);
@@ -147,11 +147,11 @@ function Scrollify({ children }) {
         ele.style.userSelect = "";
         document.body.style.userSelect = "";
     };
-    return (react_1.default.createElement("div", { className: `${prefix}-scroll-bar-wrapper` },
-        react_1.default.createElement("div", { className: `${prefix}-scroll-bar-content-container`, ref: contentContainerRef, onScroll: handleScrollContent },
+    return (react_1.default.createElement("div", { className: `${prefix}__wrapper` },
+        react_1.default.createElement("div", { className: `${prefix}__content`, ref: contentContainerRef, onScroll: handleScrollContent },
             react_1.default.createElement("div", { ref: contentRef }, children)),
-        react_1.default.createElement("div", { className: `${prefix}-scroll-bar ${shouldHideScrollbar ? "hide" : ""}` },
-            react_1.default.createElement("div", { className: `${prefix}-scroll-bar-track`, ref: trackRef, onClick: (e) => handleClickTrack(e.nativeEvent) }),
-            react_1.default.createElement("div", { className: `${prefix}-scroll-bar-thumb`, ref: thumbRef, onMouseDown: (e) => handleMouseDown(e.nativeEvent), onTouchStart: (e) => handleTouchStart(e.nativeEvent) }))));
+        react_1.default.createElement("div", { className: `${prefix}__bar ${shouldHideScrollbar ? `${prefix}__bar--hidden` : ""} ${isRTL ? `${prefix}__bar--rtl` : `${prefix}__bar--ltr`}` },
+            react_1.default.createElement("div", { className: `${prefix}__track`, ref: trackRef, onClick: (e) => handleClickTrack(e.nativeEvent) }),
+            react_1.default.createElement("div", { className: `${prefix}__thumb`, ref: thumbRef, onMouseDown: (e) => handleMouseDown(e.nativeEvent), onTouchStart: (e) => handleTouchStart(e.nativeEvent) }))));
 }
 exports.default = Scrollify;

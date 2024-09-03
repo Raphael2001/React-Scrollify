@@ -1,16 +1,17 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import useResizeObserver from "./hooks/useResizeObserver";
 
-import "./styles/Scrollbar.scss";
+import "./styles/scrollbar.css";
 
 // Define the props for the Scrollbar component
 type Props = {
   children: React.ReactElement;
+  isRTL?: Boolean;
 };
 
 const prefix = "react-scrollify";
 
-function Scrollify({ children }: Props) {
+function Scrollify({ children, isRTL = false }: Props) {
   // Refs for DOM elements
   const trackRef = useRef<HTMLDivElement>(null);
   const thumbRef = useRef<HTMLDivElement>(null);
@@ -147,9 +148,9 @@ function Scrollify({ children }: Props) {
   };
 
   return (
-    <div className={`${prefix}-scroll-bar-wrapper`}>
+    <div className={`${prefix}__wrapper`}>
       <div
-        className={`${prefix}-scroll-bar-content-container`}
+        className={`${prefix}__content`}
         ref={contentContainerRef}
         onScroll={handleScrollContent}
       >
@@ -157,15 +158,17 @@ function Scrollify({ children }: Props) {
       </div>
 
       <div
-        className={`${prefix}-scroll-bar ${shouldHideScrollbar ? "hide" : ""}`}
+        className={`${prefix}__bar ${
+          shouldHideScrollbar ? `${prefix}__bar--hidden` : ""
+        } ${isRTL ? `${prefix}__bar--rtl` : `${prefix}__bar--ltr`}`}
       >
         <div
-          className={`${prefix}-scroll-bar-track`}
+          className={`${prefix}__track`}
           ref={trackRef}
           onClick={(e) => handleClickTrack(e.nativeEvent)}
         />
         <div
-          className={`${prefix}-scroll-bar-thumb`}
+          className={`${prefix}__thumb`}
           ref={thumbRef}
           onMouseDown={(e) => handleMouseDown(e.nativeEvent)}
           onTouchStart={(e) => handleTouchStart(e.nativeEvent)}
