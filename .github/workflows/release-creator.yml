@@ -1,0 +1,22 @@
+name: Create Release on PR to master
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  create_release:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ github.sha }}
+          release_name: Release ${{ github.sha }}
+          body: |
+            Release of pull request ${{ github.event.pull_request.number }}.
+            Changes: ${{ github.event.pull_request.title }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
