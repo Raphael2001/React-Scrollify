@@ -9,9 +9,9 @@ type Props = {
   isRTL?: Boolean;
 };
 
-const prefix = "react-scrollify";
+const prefix = "sleek-scroll";
 
-function Scrollify({ children, isRTL = false }: Props) {
+function SleekScrollbar({ children, isRTL = false }: Props) {
   // Refs for DOM elements
   const trackRef = useRef<HTMLDivElement>(null);
   const thumbRef = useRef<HTMLDivElement>(null);
@@ -178,4 +178,4 @@ function Scrollify({ children, isRTL = false }: Props) {
   );
 }
 
-export default Scrollify;
+export default SleekScrollbar;

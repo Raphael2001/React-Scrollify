@@ -2,25 +2,25 @@
   --react-scrollify-thumb: #d9d9d9;
   --react-scrollify-thumb-hover: #bfbfbf;
   --react-scrollify-track: rgba(0, 0, 0, 0.1);
-  --react-scrollify-width: 8px;
+  --react-scrollify-width: 3px;
   --react-scrollify-side: 2px;
 }
 
-.react-scrollify__wrapper {
+.sleek-scroll__wrapper {
   overflow: hidden;
   position: relative;
   height: 100%;
 }
-.react-scrollify__content {
+.sleek-scroll__content {
   overflow: auto;
   height: 100%;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
-.react-scrollify__content::-webkit-scrollbar {
+.sleek-scroll__content::-webkit-scrollbar {
   display: none;
 }
-.react-scrollify__bar {
+.sleek-scroll__bar {
   background-color: var(--react-scrollify-track);
   position: absolute;
   top: 0;
@@ -28,17 +28,17 @@
   width: var(--react-scrollify-width);
   transition: opacity 0.3s ease;
 }
-.react-scrollify__bar--hidden {
+.sleek-scroll__bar--hidden {
   opacity: 0;
   pointer-events: none;
 }
-.react-scrollify__bar--rtl {
+.sleek-scroll__bar--rtl {
   right: var(--react-scrollify-side);
 }
-.react-scrollify__bar--ltr {
+.sleek-scroll__bar--ltr {
   left: var(--react-scrollify-side);
 }
-.react-scrollify__thumb {
+.sleek-scroll__thumb {
   background-color: var(--react-scrollify-thumb);
   border-radius: 9999px;
   cursor: grab;
@@ -47,10 +47,10 @@
   width: 100%;
   transition: background-color 0.2s ease;
 }
-.react-scrollify__thumb:hover, .react-scrollify__thumb:active {
+.sleek-scroll__thumb:hover, .sleek-scroll__thumb:active {
   background-color: var(--react-scrollify-thumb-hover);
 }
-.react-scrollify__track {
+.sleek-scroll__track {
   height: 100%;
   left: 0;
   position: absolute;

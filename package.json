@@ -1,5 +1,5 @@
 {
-  "name": "react-scrollify",
+  "name": "sleek-scroll",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -21,7 +21,7 @@
   "keywords": [
     "react",
     "scrollbar",
-    "react-scrollify"
+    "sleek-scroll"
   ],
   "author": "Raphael Aboohi",
   "license": "MIT",

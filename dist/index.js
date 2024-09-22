@@ -29,8 +29,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importStar(require("react"));
 const useResizeObserver_1 = __importDefault(require("./hooks/useResizeObserver"));
 require("./styles/scrollbar.css");
-const prefix = "react-scrollify";
-function Scrollify({ children, isRTL = false }) {
+const prefix = "sleek-scroll";
+function SleekScrollbar({ children, isRTL = false }) {
     // Refs for DOM elements
     const trackRef = (0, react_1.useRef)(null);
     const thumbRef = (0, react_1.useRef)(null);
@@ -154,4 +154,4 @@ function Scrollify({ children, isRTL = false }) {
             react_1.default.createElement("div", { className: `${prefix}__track`, ref: trackRef, onClick: (e) => handleClickTrack(e.nativeEvent) }),
             react_1.default.createElement("div", { className: `${prefix}__thumb`, ref: thumbRef, onMouseDown: (e) => handleMouseDown(e.nativeEvent), onTouchStart: (e) => handleTouchStart(e.nativeEvent) }))));
 }
-exports.default = Scrollify;
+exports.default = SleekScrollbar;
