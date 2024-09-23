@@ -28,4 +28,4 @@ jobs:
             Release of pull request #${{ github.event.pull_request.number }}.
             Changes: ${{ github.event.pull_request.title }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PACKAGES_GITHUB_TOKEN }}
