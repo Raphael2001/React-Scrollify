@@ -1,6 +1,6 @@
 {
   "name": "sleek-scroll",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "dist/index.js",
   "files": [
@@ -28,8 +28,8 @@
   "devDependencies": {
     "@types/react": "^18.3.5",
     "rimraf": "^6.0.1",
-    "typescript": "^5.5.4",
-    "sass": "^1.62.1"
+    "sass": "^1.62.1",
+    "typescript": "^5.5.4"
   },
   "peerDependencies": {
     "react": "^18.2.0"
