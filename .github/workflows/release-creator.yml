@@ -9,13 +9,13 @@ jobs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-      # Step to check out the master branch explicitly
-      - name: Checkout master branch
+      # Step to check out the repository and ensure it's the master branch post-merge
+      - name: Checkout the master branch
         uses: actions/checkout@v4
         with:
-          ref: master # Ensure we are checking out the master branch
+          ref: master # Ensure we are working with master branch
 
-      # Step to read the version from master branch package.json
+      # Step to read the version from package.json on master
       - name: Read version from package.json
         id: get_version
         run: |
@@ -26,11 +26,20 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v${{ env.VERSION }}
+          tag_name: v${{ env.VERSION }} # Create the release with version tag
           release_name: Release v${{ env.VERSION }}
           body: |
             Release of pull request #${{ github.event.pull_request.number }}.
             Changes: ${{ github.event.pull_request.title }}
-          draft: false # Ensure that it's a published release, not just a tag
+          draft: false # Ensure the release is published
+          prerelease: false # Specify that it's not a pre-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.PACKAGES_GITHUB_TOKEN }}
+
+      # Optional step to push the version tag to the remote
+      - name: Push version tag to repository
+        run: |
+          git tag v${{ env.VERSION }}
+          git push origin v${{ env.VERSION }}
         env:
           GITHUB_TOKEN: ${{ secrets.PACKAGES_GITHUB_TOKEN }}
