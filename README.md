@@ -2,6 +2,8 @@
 [![License](https://img.shields.io/badge/License-MIT-blue)](#license)
 [![issues - Sleek-Scroll](https://img.shields.io/github/issues/Raphael2001/Sleek-Scroll)](https://github.com/Raphael2001/Sleek-Scroll/issues)
 
+[![NPM Downloads](https://badgen.net/npm/dt/sleek-scroll?icon=npm&color=blue&labelColor=black&label=Downloads&cache=300)](https://www.npmjs.com/package/sleek-scroll)
+
 # Sleek-Scroll
 
 Sleek-Scroll is a lightweight, easy-to-style scrollbar component for React applications. It supports RTL (right-to-left) languages and is compatible with all major browsers.
