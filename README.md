@@ -1,8 +1,15 @@
-<div align="center">
+<p align="center">
+
 [![GitHub release](https://img.shields.io/github/release/Raphael2001/Sleek-Scroll?include_prereleases=&sort=semver&color=blue)](https://github.com/Raphael2001/Sleek-Scroll/releases/)
+&nbsp;
+
 [![License](https://img.shields.io/badge/License-MIT-blue)](#license)
+&nbsp;
+
 [![issues - Sleek-Scroll](https://img.shields.io/github/issues/Raphael2001/Sleek-Scroll)](https://github.com/Raphael2001/Sleek-Scroll/issues)
-</div>
+&nbsp;
+
+</p>
 
 # Sleek-Scroll
 
