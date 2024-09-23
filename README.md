@@ -94,7 +94,7 @@ We welcome contributions to Sleek-Scroll! To contribute:
    ```bash
    git push origin feature/your-feature-name
    ```
-5. Open a pull request.
+5. Open a pull request **to the `dev` branch**.
 
 ## License
 

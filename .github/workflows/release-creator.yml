@@ -1,0 +1,31 @@
+name: Create Release on PR to master
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  create_release:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Step to read the version from package.json
+      - name: Read version from package.json
+        id: get_version
+        run: |
+          VERSION=$(jq -r '.version' package.json)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      # Create GitHub Release using the extracted version
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ env.VERSION }}
+          release_name: Release v${{ env.VERSION }}
+          body: |
+            Release of pull request #${{ github.event.pull_request.number }}.
+            Changes: ${{ github.event.pull_request.title }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.PACKAGES_GITHUB_TOKEN }}
