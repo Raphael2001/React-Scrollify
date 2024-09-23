@@ -1,8 +1,9 @@
-[![GitHub release](https://img.shields.io/github/release/Raphael2001/Sleek-Scroll?include_prereleases=&sort=semver&color=blue)](https://github.com/Raphael2001/Sleek-Scroll/releases/)
-[![License](https://img.shields.io/badge/License-MIT-blue)](#license)
-[![issues - Sleek-Scroll](https://img.shields.io/github/issues/Raphael2001/Sleek-Scroll)](https://github.com/Raphael2001/Sleek-Scroll/issues)
-
-[![NPM Downloads](https://badgen.net/npm/dt/sleek-scroll?icon=npm&color=blue&labelColor=black&label=Downloads&cache=300)](https://www.npmjs.com/package/sleek-scroll)
+![npm downloads](https://badgen.net/npm/dt/sleek-scroll?icon=npm&color=blue&labelColor=black&label=Downloads&cache=300)
+![npm version](https://badgen.net/npm/v/sleek-scroll?icon=npm&color=green&labelColor=black&label=Version&cache=300)
+![npm license](https://badgen.net/npm/license/sleek-scroll?icon=github&color=purple&labelColor=black&label=License)
+![bundle size](https://badgen.net/bundlephobia/min/sleek-scroll?icon=package&color=orange&labelColor=black&label=Minified%20Size)
+![last commit](https://badgen.net/github/last-commit/Raphael2001/Sleek-Scroll?icon=github&color=yellow&labelColor=black&label=Last%20Commit)
+![open issues](https://badgen.net/github/issues/Raphael2001/Sleek-Scroll?icon=github&color=red&labelColor=black&label=Open%20Issues)
 
 # Sleek-Scroll
 
