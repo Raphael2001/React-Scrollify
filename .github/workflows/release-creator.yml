@@ -9,9 +9,13 @@ jobs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      # Step to check out the master branch explicitly
+      - name: Checkout master branch
+        uses: actions/checkout@v4
+        with:
+          ref: master # Ensure we are checking out the master branch
 
-      # Step to read the version from package.json
+      # Step to read the version from master branch package.json
       - name: Read version from package.json
         id: get_version
         run: |
@@ -27,5 +31,6 @@ jobs:
           body: |
             Release of pull request #${{ github.event.pull_request.number }}.
             Changes: ${{ github.event.pull_request.title }}
+          draft: false # Ensure that it's a published release, not just a tag
         env:
           GITHUB_TOKEN: ${{ secrets.PACKAGES_GITHUB_TOKEN }}
