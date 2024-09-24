@@ -34,8 +34,12 @@ jobs:
       # Publish to GitHub Packages
       - name: Publish to GitHub Packages
         run: |
+          # Temporarily add scope to package.json for GitHub Packages
+          sed -i 's/"name": "sleek-scroll"/"name": "@Raphael2001\/sleek-scroll"/' package.json
           echo "//npm.pkg.github.com/:_authToken=\${NODE_AUTH_TOKEN}" > .npmrc
           npm publish --registry https://npm.pkg.github.com
+          # Restore original package.json after publishing
+          git checkout package.json
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -43,6 +47,6 @@ jobs:
       - name: Publish to npm
         run: |
           echo "//registry.npmjs.org/:_authToken=\${NODE_AUTH_TOKEN}" > .npmrc
-          npm publish --registry https://registry.npmjs.org
+          npm publish --access public --registry https://registry.npmjs.org
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
