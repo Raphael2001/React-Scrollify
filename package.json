@@ -36,8 +36,7 @@
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
-    "@Raphael2001:registry": "https://npm.pkg.github.com"
-
+    "Raphael2001:registry": "https://npm.pkg.github.com"
   },
   "bugs": {
     "url": "https://github.com/Raphael2001/Sleek-Scroll/issues"
