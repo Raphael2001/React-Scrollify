@@ -33,5 +33,15 @@
   },
   "peerDependencies": {
     "react": "^18.2.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "bugs": {
+    "url": "https://github.com/Raphael2001/Sleek-Scroll/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raphael2001/Sleek-Scroll/issues"
   }
 }
