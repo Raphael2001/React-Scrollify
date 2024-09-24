@@ -34,7 +34,7 @@ jobs:
           draft: false # Ensure the release is published
           prerelease: false # Specify that it's not a pre-release
         env:
-          GITHUB_TOKEN: ${{ secrets.PACKAGES_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Optional step to push the version tag to the remote
       - name: Push version tag to repository
@@ -42,4 +42,4 @@ jobs:
           git tag v${{ env.VERSION }}
           git push origin v${{ env.VERSION }}
         env:
-          GITHUB_TOKEN: ${{ secrets.PACKAGES_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
