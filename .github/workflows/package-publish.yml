@@ -21,6 +21,13 @@ jobs:
         with:
           node-version: "20.x"
 
+      # Remove any pre-existing .npmrc before running yarn to prevent Yarn from reading it
+      - name: Remove .npmrc
+        run: |
+          if [ -f .npmrc ]; then
+            rm .npmrc
+          fi
+
       # Install dependencies
       - run: yarn
 
