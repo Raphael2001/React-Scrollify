@@ -1,6 +1,6 @@
 {
   "name": "sleek-scroll",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "",
   "main": "dist/index.js",
   "files": [
@@ -42,6 +42,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Raphael2001/Sleek-Scroll/issues"
+    "url": "https://github.com/Raphael2001/Sleek-Scroll/issues"
   }
 }
