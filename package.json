@@ -1,6 +1,6 @@
 {
   "name": "sleek-scroll",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "",
   "main": "dist/index.js",
   "files": [
@@ -35,7 +35,8 @@
     "react": "^18.2.0"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "@Raphael2001:registry": "https://npm.pkg.github.com"
   },
   "bugs": {
     "url": "https://github.com/Raphael2001/Sleek-Scroll/issues"
