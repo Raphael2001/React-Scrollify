@@ -1,5 +1,5 @@
 {
-  "name": "@Raphael2001/sleek-scroll",
+  "name": "sleek-scroll",
   "version": "1.0.12",
   "description": "",
   "main": "dist/index.js",
@@ -10,7 +10,9 @@
     "clean": "rimraf dist",
     "prebuild": "npm run clean && npm run compile:scss",
     "build": "tsc",
-    "compile:scss": "sass src/styles:dist/styles --no-source-map"
+    "compile:scss": "sass src/styles:dist/styles --no-source-map",
+    "publish:npm": "npm publish --registry https://registry.npmjs.org/",
+    "publish:github": "npm publish --registry https://npm.pkg.github.com"
   },
   "exports": {
     ".": {
@@ -33,9 +35,6 @@
   },
   "peerDependencies": {
     "react": "^18.2.0"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
   },
   "bugs": {
     "url": "https://github.com/Raphael2001/Sleek-Scroll/issues"
