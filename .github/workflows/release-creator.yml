@@ -1,4 +1,5 @@
 name: Create Release on PR to master
+
 on:
   pull_request:
     branches:
@@ -6,37 +7,34 @@ on:
 
 jobs:
   create_release:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-      # Step to check out the repository and ensure it's the master branch post-merge
-      - name: Checkout the master branch
+      # Checkout the repository
+      - name: Checkout the repository
         uses: actions/checkout@v4
-        with:
-          ref: master # Ensure we are working with master branch
 
-      # Step to read the version from package.json on master
+      # Read the version from package.json
       - name: Read version from package.json
         id: get_version
         run: |
           VERSION=$(jq -r '.version' package.json)
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
-      # Create GitHub Release using the extracted version
+      # Create a GitHub Release with the extracted version
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
           tag_name: v${{ env.VERSION }} # Create the release with version tag
           release_name: Release v${{ env.VERSION }}
           body: |
-            Release of pull request #${{ github.event.pull_request.number }}.
-            Changes: ${{ github.event.pull_request.title }}
-          draft: false # Ensure the release is published
-          prerelease: false # Specify that it's not a pre-release
+            Release for pull request #${{ github.event.number }}.
+            PR Title: ${{ github.event.pull_request.title }}
+          draft: false
+          prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Optional step to push the version tag to the remote
+      # Optional: Push the version tag to the repository
       - name: Push version tag to repository
         run: |
           git tag v${{ env.VERSION }}
