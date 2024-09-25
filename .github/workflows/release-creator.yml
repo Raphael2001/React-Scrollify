@@ -38,8 +38,8 @@ jobs:
       # Configure Git to use the PAT and Push the version tag
       - name: Push version tag to repository
         run: |
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Action"
+          git config --global user.email "raphaelaboohi@gmail.com"
+          git config --global user.name "Raphael Aboohi"
           git tag v${{ env.VERSION }}
           git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/Raphael2001/Sleek-Scroll.git
           git push origin v${{ env.VERSION }}
