@@ -21,23 +21,24 @@ jobs:
           VERSION=$(jq -r '.version' package.json)
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
-      # Create GitHub Release using the extracted version
+      # Create GitHub Release using softprops/action-gh-release
       - name: Create GitHub Release
-        run: |
-          curl -X POST -H "Authorization: token ${{ secrets.PAT_TOKEN }}" \
-            -d '{
-              "tag_name": "v'${{ env.VERSION }}'",
-              "name": "v'${{ env.VERSION }}'",
-              "body": "Release for version v'${{ env.VERSION }}'",
-              "draft": false,
-              "prerelease": false
-            }' \
-            https://api.github.com/repos/Raphael2001/sleek-scroll/releases
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ env.VERSION }}
+          name: Release v${{ env.VERSION }}
+          body: |
+            Release for pull request #${{ github.event.number }}.
+            PR Title: ${{ github.event.pull_request.title }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }} # Use PAT_TOKEN instead of GITHUB_TOKEN
 
-      # Push the version tag to the repository
+      # Push the version tag to the repository using PAT
       - name: Push version tag to repository
         run: |
           git tag v${{ env.VERSION }}
           git push origin v${{ env.VERSION }}
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }} # Use the PAT to push tags
