@@ -25,14 +25,14 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: v${{ env.VERSION }} # Create the release with version tag
-          release_name: Release v${{ env.VERSION }}
+          name: Release v${{ env.VERSION }} # Use `name` instead of `release_name`
           body: |
             Release for pull request #${{ github.event.number }}.
             PR Title: ${{ github.event.pull_request.title }}
           draft: false
           prerelease: false
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Ensure this token has the correct permissions
 
       # Optional: Push the version tag to the repository
       - name: Push version tag to repository
