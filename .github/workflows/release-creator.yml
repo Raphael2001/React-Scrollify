@@ -33,12 +33,14 @@ jobs:
           draft: false
           prerelease: false
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }} # Use PAT_TOKEN instead of GITHUB_TOKEN
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }} # Use the PAT for creating the release
 
-      # Push the version tag to the repository using PAT
+      # Configure Git to use the PAT and Push the version tag
       - name: Push version tag to repository
         run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
           git tag v${{ env.VERSION }}
           git push origin v${{ env.VERSION }}
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }} # Use the PAT to push tags
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }} # Use PAT for pushing the tag
