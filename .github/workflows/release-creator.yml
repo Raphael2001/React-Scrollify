@@ -33,7 +33,7 @@ jobs:
           draft: false
           prerelease: false
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }} # Use the PAT for creating the release
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }} # Use PAT for creating the release
 
       # Configure Git to use the PAT and Push the version tag
       - name: Push version tag to repository
@@ -41,6 +41,7 @@ jobs:
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
           git tag v${{ env.VERSION }}
+          git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/Raphael2001/Sleek-Scroll.git
           git push origin v${{ env.VERSION }}
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }} # Use PAT for pushing the tag
